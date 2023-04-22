@@ -20,16 +20,7 @@ public class WebController {
     public ResponseEntity<?> checkIpv6Support(UriComponentsBuilder uriBuilder) {
         Map<String, Object> response = new HashMap<>();
         String siteUrl = uriBuilder.toUriString();
-        System.out.println(siteUrl);
-        System.out.println(webService.isSiteSupportsIpv6(siteUrl));
         response.put("success", webService.isSiteSupportsIpv6(siteUrl));
         return ResponseEntity.ok(response);
-    }
-
-    @PostMapping("/checkIpv6Support2")
-    public ResponseEntity<?> checkIpv6Support2(@RequestBody String siteUrl) {
-        Map<String, Boolean> response = new HashMap<>();
-        response.put("success", webService.isSiteSupportsIpv6(siteUrl));
-        return response.get("success") ? ResponseEntity.ok(response) : ResponseEntity.status(400).body(response);
     }
 }
