@@ -17,9 +17,8 @@ public class WebController {
     private final WebService webService;
 
     @GetMapping("/checkIpv6Support")
-    public ResponseEntity<?> checkIpv6Support(UriComponentsBuilder uriBuilder) {
+    public ResponseEntity<?> checkIpv6Support(@RequestParam(value = "siteUrl", required = true) String siteUrl) {
         Map<String, Object> response = new HashMap<>();
-        String siteUrl = uriBuilder.toUriString();
         response.put("success", webService.isSiteSupportsIpv6(siteUrl));
         return ResponseEntity.ok(response);
     }
