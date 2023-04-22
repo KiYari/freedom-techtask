@@ -30,6 +30,6 @@ public class WebController {
     public ResponseEntity<?> checkIpv6Support2(@RequestBody String siteUrl) {
         Map<String, Boolean> response = new HashMap<>();
         response.put("success", webService.isSiteSupportsIpv6(siteUrl));
-        return response.get("success") ? ResponseEntity.ok(response) : ResponseEntity.status(400).body(response che);
+        return response.get("success") ? ResponseEntity.ok(response) : ResponseEntity.status(400).body(response);
     }
 }
